@@ -7,7 +7,7 @@
 (function () {
   var CACTUS_CSS = "https://latest.cactus.chat/style.css";
   var CACTUS_JS  = "https://latest.cactus.chat/cactus.js";
-  var SITE_NAME  = "kiwidialectic"; // Matrix-registered via @bot.cactusbot:cactus.chat
+  var SITE_NAME  = "sixthinkers"; // Matrix-registered via @bot.cactusbot:cactus.chat
   var HOMESERVER = "https://matrix.cactus.chat:8448";
   var SERVER     = "cactus.chat";
 
