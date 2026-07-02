@@ -18,11 +18,17 @@
     ? thisScript.src.replace(/community\.js(\?.*)?$/, '')
     : '/assets/';
 
+  // NOTE (2 July 2026): the public Cactus service (matrix.cactus.chat) is down
+  // — every Matrix client-server endpoint returns 404. Comments are disabled
+  // pending a decision on hosting. We still render the section header + intro
+  // + fallback message so the community placeholder stays visible.
+  var CACTUS_ENABLED = false;
+
   var CACTUS_CSS = ASSETS_BASE + "cactus-style.css";
   var CACTUS_JS  = ASSETS_BASE + "cactus.js";
   var CACTUS_CSS_FALLBACK = "https://latest.cactus.chat/style.css";
   var CACTUS_JS_FALLBACK  = "https://latest.cactus.chat/cactus.js";
-  var SITE_NAME  = "sixthinkers"; // Matrix-registered via @cactusbot:cactus.chat
+  var SITE_NAME  = "sixthinkers";
   var HOMESERVER = "https://matrix.cactus.chat:8448";
   var SERVER     = "cactus.chat";
 
@@ -62,8 +68,24 @@
     var mount = root.querySelector("#kd-comments");
     if (!mount) return;
 
+    if (!CACTUS_ENABLED) {
+      // Show the graceful fallback — don't hammer a dead endpoint.
+      // Rewrite the fallback text and the “Kōrero open” live badge so we
+      // don't mislead visitors while the comment host is being sorted.
+      var fb = root.querySelector('.kc-fallback');
+      if (fb) {
+        fb.innerHTML = 'On-page kōrero is offline while we sort a comment host. In the meantime, jump into the conversation on <a href="https://kiwidialectic.substack.com" target="_blank" rel="noopener">Substack</a> or on <a href="https://facebook.com/kiwidialectic" target="_blank" rel="noopener">Facebook</a>.';
+      }
+      var live = root.querySelector('.kc-live');
+      if (live) {
+        var label = live.querySelector('span:last-child');
+        if (label) label.textContent = 'Kōrero soon';
+      }
+      markBroken(root);
+      return;
+    }
+
     var sectionId = slugFromPath();
-    // Show a loading hint while Cactus fetches
     mount.innerHTML = '<div class="kc-loading">Loading kōrero…</div>';
 
     // Try local first, then CDN fallback

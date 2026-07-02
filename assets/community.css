@@ -101,6 +101,10 @@
 }
 .kd-community.is-broken #kd-comments{display:none}
 .kd-community.is-broken .kc-fallback{display:block}
+/* When Cactus service is unavailable, also hide the intro/meta lines that
+   promise a working comment box, to avoid misleading visitors. */
+.kd-community.is-broken .kc-lede,
+.kd-community.is-broken .kc-meta{display:none}
 
 @media (max-width:520px){
   .kd-community{padding:44px 16px 36px}
