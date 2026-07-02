@@ -464,7 +464,19 @@ def build_lesson(slug, course, idx, lesson):
     fname = slugify_lesson(lesson['title'], idx)
     title = f"{lesson['title']} — {t['display']}"
     desc = lesson.get('teaser', '')
-    substack = lesson.get('link') or SUBSTACK_HOME
+    substack = lesson.get('substack_link') or lesson.get('link') or SUBSTACK_HOME
+
+    # If a bodies/<slug>-lesson-NN.html file exists, inline it as the lesson body.
+    body_file = ROOT / "bodies" / f"{slug}-lesson-{idx:02d}.html"
+    if body_file.exists():
+        body_content = body_file.read_text().strip()
+        body_block = f'<div class="body">{body_content}</div>'
+    else:
+        body_block = """    <div class="placeholder">
+      <strong>Full lesson body coming shortly.</strong><br>
+      This lesson is currently published in full on Substack. Click <em>Read on Substack</em> below for the complete text.
+      Once the HTML version lands here, the Substack link will remain as the discussion / comment thread.
+    </div>"""
 
     lessons = course['lessons']
     prev_html = '<span class="placeholder">·</span>'
@@ -485,11 +497,7 @@ def build_lesson(slug, course, idx, lesson):
     <h1>{escape(lesson['title'])}</h1>
     <p class="teaser">{escape(lesson.get('teaser', ''))}</p>
 
-    <div class="placeholder">
-      <strong>Full lesson body coming shortly.</strong><br>
-      This lesson is currently published in full on Substack. Click <em>Read on Substack</em> below for the complete text.
-      Once the HTML version lands here, the Substack link will remain as the discussion / comment thread.
-    </div>
+{body_block}
 
 {ctas_block(substack)}
 
