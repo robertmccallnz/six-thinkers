@@ -5,9 +5,24 @@
    - Prefers reduced motion; graceful fallback if Cactus fails to load
 */
 (function () {
-  var CACTUS_CSS = "https://latest.cactus.chat/style.css";
-  var CACTUS_JS  = "https://latest.cactus.chat/cactus.js";
-  var SITE_NAME  = "sixthinkers"; // Matrix-registered via @bot.cactusbot:cactus.chat
+  // The public CDN latest.cactus.chat has been unreliable — DNS often unresolved.
+  // We self-host the compiled client next to this script, and fall back to the CDN
+  // only if the local copy fails.
+  // Derive the /assets/ base URL from the currentScript src so it works from any
+  // depth in the site (root, subdir, sub-subdir).
+  var thisScript = document.currentScript || (function(){
+    var s = document.getElementsByTagName('script');
+    return s[s.length-1];
+  })();
+  var ASSETS_BASE = thisScript && thisScript.src
+    ? thisScript.src.replace(/community\.js(\?.*)?$/, '')
+    : '/assets/';
+
+  var CACTUS_CSS = ASSETS_BASE + "cactus-style.css";
+  var CACTUS_JS  = ASSETS_BASE + "cactus.js";
+  var CACTUS_CSS_FALLBACK = "https://latest.cactus.chat/style.css";
+  var CACTUS_JS_FALLBACK  = "https://latest.cactus.chat/cactus.js";
+  var SITE_NAME  = "sixthinkers"; // Matrix-registered via @cactusbot:cactus.chat
   var HOMESERVER = "https://matrix.cactus.chat:8448";
   var SERVER     = "cactus.chat";
 
@@ -51,7 +66,15 @@
     // Show a loading hint while Cactus fetches
     mount.innerHTML = '<div class="kc-loading">Loading kōrero…</div>';
 
-    Promise.all([loadCSS(CACTUS_CSS), loadJS(CACTUS_JS)]).then(function () {
+    // Try local first, then CDN fallback
+    function loadAssets() {
+      return Promise.all([loadCSS(CACTUS_CSS), loadJS(CACTUS_JS)])
+        .catch(function () {
+          return Promise.all([loadCSS(CACTUS_CSS_FALLBACK), loadJS(CACTUS_JS_FALLBACK)]);
+        });
+    }
+
+    loadAssets().then(function () {
       if (typeof window.initComments !== "function") {
         markBroken(root); return;
       }
