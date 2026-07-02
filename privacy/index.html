@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Privacy · Six Thinkers · The Kiwi Dialectic</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy notes for the Six Thinkers course site. NZ Privacy Act 2020 compliant. No IP tracking, no analytics cookies, federated comments via Cactus.">
+  <meta name="description" content="Privacy notes for the Six Thinkers course site. NZ Privacy Act 2020 compliant. No IP tracking, no analytics cookies, comments hosted on GitHub Discussions via Giscus.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,25 +32,26 @@
 <main class="privacy">
   <p class="kicker">Six Thinkers · The Kiwi Dialectic</p>
   <h1>Privacy notes</h1>
-  <p class="updated">Last updated 2 July 2026 · Complies with the New Zealand Privacy Act 2020</p>
+  <p class="updated">Last updated 3 July 2026 · Complies with the New Zealand Privacy Act 2020</p>
 
   <p>This site exists to teach. It does not exist to harvest you. What follows is the plain-language version of what we do and don't do with your data. If you want the legal-flavoured version, contact us — details below.</p>
 
   <div class="callout">
-    <strong>Short version.</strong> No analytics. No cookies from us. No IP tracking. No email list running through this site. Comments are federated via Matrix (Cactus Comments) and stored on <a href="https://cactus.chat" target="_blank" rel="noopener">cactus.chat</a>, not here. GitHub Pages hosts the files and keeps its own minimal server logs — that's out of our hands.
+    <strong>Short version.</strong> No analytics. No cookies from us. No IP tracking. No email list running through this site. Comments are hosted on <a href="https://github.com/robertmccallnz/six-thinkers/discussions" target="_blank" rel="noopener">GitHub Discussions</a> via <a href="https://giscus.app" target="_blank" rel="noopener">Giscus</a> (MIT-licensed, open source) — not on this site. GitHub Pages hosts the files and keeps its own minimal server logs — that's out of our hands.
   </div>
 
   <h2>What we collect</h2>
   <p><strong>Nothing directly.</strong> This site is a static site hosted on GitHub Pages. We have not installed Google Analytics, Facebook Pixel, or any other tracking script. We do not run a mailing-list widget on this site (the Substack newsletter lives at <a href="https://kiwidialectic.substack.com" target="_blank" rel="noopener">kiwidialectic.substack.com</a> — its privacy terms apply there, not here).</p>
 
-  <h2>Comments — Cactus / Matrix</h2>
-  <p>Each page has an open comment thread powered by <a href="https://cactus.chat" target="_blank" rel="noopener">Cactus Comments</a>, a free and open-source (LGPLv3) federated comment system that runs on the Matrix protocol.</p>
+  <h2>Comments — Giscus / GitHub Discussions</h2>
+  <p>Each page has an open comment thread powered by <a href="https://giscus.app" target="_blank" rel="noopener">Giscus</a>, a free and open-source (MIT) comment widget that maps every page on this site to a matching thread in <a href="https://github.com/robertmccallnz/six-thinkers/discussions" target="_blank" rel="noopener">GitHub Discussions</a> on the site's public repo.</p>
   <ul>
-    <li>Comments are stored on the cactus.chat homeserver (matrix.cactus.chat), <strong>not on this site</strong>.</li>
-    <li>You can post as a guest (a temporary display name, no account, no email) or sign in with a Matrix account you already have.</li>
-    <li>Whatever you type in a comment is public, federated, and part of a Matrix room that will outlive this site. Do not post anything you would not want quoted back to you.</li>
-    <li>To delete a comment you posted, contact us (details below) or use your Matrix client if you posted with an account.</li>
-    <li>Cactus.chat's own privacy policy governs the storage of comment data. See <a href="https://cactus.chat/about/privacy/" target="_blank" rel="noopener">cactus.chat/about/privacy/</a>.</li>
+    <li>Comments are stored inside GitHub Discussions on <a href="https://github.com/robertmccallnz/six-thinkers" target="_blank" rel="noopener">the six-thinkers repo</a>, <strong>not on this site</strong>. Anyone can read them without an account.</li>
+    <li>To <em>post</em>, you need a free GitHub account. There is no anonymous / guest posting — this is Giscus's one real trade-off, but it means everything you post is tied to your GitHub handle, publicly and permanently.</li>
+    <li>Whatever you type is public. It lives in the repo's discussion threads and can be quoted, indexed, and archived anywhere on the open web. Do not post anything you would not want quoted back to you.</li>
+    <li>To delete a comment you posted, use GitHub's own delete button on the discussion, or contact us (details below).</li>
+    <li>GitHub's privacy policy governs storage of comment data and account metadata. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's privacy statement</a>.</li>
+    <li>The Giscus widget itself sets no tracking cookies, but the giscus.app script and the embedded GitHub iframe both load third-party JavaScript from those origins.</li>
   </ul>
 
   <h2>Server logs (GitHub Pages)</h2>
@@ -59,7 +60,7 @@
   <h2>Fonts and third-party assets</h2>
   <ul>
     <li>Fonts (Bebas Neue, Inter) load from Google Fonts. Google may log your IP when your browser requests them. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.</li>
-    <li>The Cactus Comments script loads from latest.cactus.chat.</li>
+    <li>The Giscus widget script loads from <a href="https://giscus.app" target="_blank" rel="noopener">giscus.app</a> and embeds an iframe served from GitHub.</li>
     <li>External links to Substack, Ko-fi, GitHub, YouTube, or elsewhere are governed by those services' own privacy policies once you leave this site.</li>
   </ul>
 
