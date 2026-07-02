@@ -3,6 +3,7 @@
 Six thinkers refitted for the algorithmic century — **Gramsci, Kropotkin, Graeber, Freire, Deleuze, Bakunin**. Free HTML courses from The Kiwi Dialectic.
 
 **Live at:** https://robertmccallnz.github.io/six-thinkers/
+**Social Kit (free, CC BY-SA 4.0):** https://robertmccallnz.github.io/six-thinkers/social-kit/
 
 ## What this repo is
 
@@ -20,6 +21,7 @@ index.html                                             — Hub (six courses)
 assets/style.css                                       — Shared design system
 courses.json                                           — Source of truth
 build.py                                               — Regenerates the site from courses.json
+social-kit/                                            — Public social media kit (21 visuals + scripts)
 ```
 
 ## The six courses

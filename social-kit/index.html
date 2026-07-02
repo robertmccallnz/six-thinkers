@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Social Media Kit — Six Thinkers · The Kiwi Dialectic</title>
+<meta name="description" content="Free social media kit for the Six Thinkers series — 21 visuals + platform-tuned scripts for X, Substack Notes, Facebook, Bluesky and LinkedIn. CC BY-SA 4.0. Remix and use freely.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  :root { --accent-course: #e8a83a; }
+
+  /* Kit-specific layout on top of the site's system */
+  .kit-hero { padding: 70px 0 40px; border-bottom: 1px solid var(--line); }
+  .kit-hero .eyebrow { color: var(--accent); letter-spacing: .12em; font-family: ui-monospace, monospace; font-size: 13px; text-transform: uppercase; margin-bottom: 20px; }
+  .kit-hero h1 { max-width: 22ch; }
+  .kit-hero .kaupapa { max-width: 62ch; color: var(--muted); font-size: var(--text-lg); margin-top: 24px; }
+  .kit-hero .stats { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--line); }
+  .kit-hero .stat .n { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--fg); letter-spacing: .04em; line-height: 1; }
+  .kit-hero .stat .l { color: var(--muted); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin-top: 6px; font-family: ui-monospace, monospace; }
+
+  /* Section blocks */
+  .kit-section { padding: 60px 0; border-bottom: 1px solid var(--line); }
+  .kit-section .section-eyebrow { color: var(--accent); font-family: ui-monospace, monospace; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px; }
+  .kit-section h2 { max-width: 20ch; }
+  .kit-section .lede { color: var(--muted); max-width: 62ch; margin-top: 12px; font-size: var(--text-lg); }
+
+  /* Visual grid */
+  .visual-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin-top: 40px;
+  }
+  .visual-tile {
+    display: block;
+    border: 1px solid var(--line);
+    background: var(--bg-2);
+    padding: 14px;
+    transition: border-color .2s, transform .2s;
+    color: var(--fg);
+  }
+  .visual-tile:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; }
+  .visual-tile img { width: 100%; height: auto; display: block; }
+  .visual-tile .meta { display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px; gap: 10px; }
+  .visual-tile .meta .t { font-family: 'Bebas Neue', sans-serif; letter-spacing: .1em; font-size: 15px; color: var(--fg); }
+  .visual-tile .meta .dl { color: var(--muted); font-size: 12px; font-family: ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; }
+  .visual-tile:hover .meta .dl { color: var(--accent); }
+
+  /* Category tags for visuals */
+  .cat-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .cat-tab { display: inline-block; padding: 8px 14px; border: 1px solid var(--line); color: var(--muted); font-family: ui-monospace, monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; user-select: none; transition: all .15s; background: transparent; }
+  .cat-tab:hover, .cat-tab.on { border-color: var(--accent); color: var(--accent); }
+
+  /* Scripts */
+  .thinker-block { margin-top: 50px; padding-top: 40px; border-top: 1px solid var(--line); }
+  .thinker-block:first-of-type { border-top: 0; margin-top: 0; padding-top: 0; }
+  .thinker-block .header-row { display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap; margin-bottom: 8px; }
+  .thinker-block .no { color: var(--accent); font-family: ui-monospace, monospace; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+  .thinker-block h3 { font-size: var(--text-3xl); margin: 0; }
+  .thinker-block .oneline { color: var(--muted); font-size: var(--text-lg); max-width: 62ch; margin: 4px 0 24px 0; }
+
+  .script-card {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    padding: 26px;
+    margin: 16px 0;
+    position: relative;
+  }
+  .script-card .platform { font-family: 'Bebas Neue', sans-serif; letter-spacing: .14em; font-size: 14px; color: var(--accent); margin-bottom: 14px; }
+  .script-card blockquote { margin: 0; padding: 0; border: 0; color: var(--fg); font-size: 16px; line-height: 1.7; white-space: pre-wrap; }
+  .copy-btn {
+    position: absolute; top: 20px; right: 20px;
+    background: transparent; border: 1px solid var(--line); color: var(--muted);
+    padding: 6px 12px; font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: all .15s;
+  }
+  .copy-btn:hover { color: var(--accent); border-color: var(--accent); }
+  .copy-btn.ok { color: var(--kōura); border-color: var(--kōura); }
+  .prompt-note { color: var(--muted); font-size: 14px; font-style: italic; margin-top: 20px; padding-left: 14px; border-left: 2px solid var(--accent); }
+
+  /* Big download strip */
+  .download-strip {
+    display: flex; flex-wrap: wrap; gap: 14px;
+    padding: 34px 0;
+    margin: 30px 0 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .download-strip .note { color: var(--muted); font-size: 14px; margin: 0; width: 100%; }
+
+  /* TOC */
+  .toc { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .toc a { padding: 8px 14px; border: 1px solid var(--line); color: var(--fg); font-family: ui-monospace, monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+  .toc a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+  /* Per-thinker accent overrides applied dynamically */
+  .t-gramsci { --accent-course: #d7261e; }
+  .t-kropotkin { --accent-course: #e8a83a; }
+  .t-graeber { --accent-course: #4fa3b8; }
+  .t-freire { --accent-course: #8fbf5e; }
+  .t-deleuze { --accent-course: #b47ee0; }
+  .t-bakunin { --accent-course: #e06f4f; }
+
+  @media (max-width: 700px) {
+    .kit-hero .stats { gap: 24px; }
+    .copy-btn { position: static; margin-bottom: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="shell row">
+    <a href="../index.html" class="brand">SIX <span>THINKERS</span></a>
+    <div>
+      <a href="../index.html">Six Thinkers</a>
+      <a href="../gramsci-for-aotearoa/index.html">Gramsci</a>
+      <a href="../kropotkin-mutual-aid/index.html">Kropotkin</a>
+      <a href="../graeber-debt-bullshit-jobs-direct-democracy/index.html">Graeber</a>
+      <a href="../freire-mo-aotearoa/index.html">Freire</a>
+      <a href="../gilles-deleuze/index.html">Deleuze</a>
+      <a href="../bakunin-mo-aotearoa/index.html">Bakunin</a>
+      <a href="index.html" class="active">Social Kit</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="kit-hero">
+  <div class="shell">
+    <p class="eyebrow">FREE SOCIAL MEDIA KIT · CC BY-SA 4.0</p>
+    <h1>Six Thinkers.<br>One Working-Class Toolkit.<br>Now, One Social Kit.</h1>
+    <p class="kaupapa">Twenty-one visuals and a full set of platform-tuned scripts for X, Substack Notes, Facebook, Bluesky and LinkedIn. Every hook written to provoke a reply, not just a like. Free to download. Free to remix. Free for anyone teaching, organising, or posting the six thinkers into the algorithmic century.</p>
+
+    <div class="ctas" style="margin-top:32px; border-top: 0; padding-top:0; border-bottom:0;">
+      <a class="btn" href="scripts.md" download>⬇ Download all scripts (.md)</a>
+      <a class="btn kofi" href="visuals/" >⬇ Browse all visuals</a>
+      <a class="btn substack" href="https://github.com/robertmccallnz/six-thinkers/tree/main/social-kit" target="_blank">Repo · Fork it</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="n">21</div><div class="l">Visuals · 1080×1080</div></div>
+      <div class="stat"><div class="n">30+</div><div class="l">Scripts across 5 platforms</div></div>
+      <div class="stat"><div class="n">6</div><div class="l">Discussion prompts</div></div>
+      <div class="stat"><div class="n">CC BY-SA</div><div class="l">Free to remix</div></div>
+    </div>
+
+    <div class="toc">
+      <a href="#how-to-use">How to use</a>
+      <a href="#visuals">Visuals</a>
+      <a href="#launch">Launch posts</a>
+      <a href="#thinkers">Per-thinker scripts</a>
+      <a href="#prompts">Discussion drivers</a>
+      <a href="#koha">Koha</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="kit-section" id="how-to-use">
+  <div class="shell">
+    <p class="section-eyebrow">01 · The Kaupapa</p>
+    <h2>Written for replies. Not likes.</h2>
+    <p class="lede">Every post in this kit ends with either a question, a claim to disagree with, or a challenge to name something. That's what moves a post from impressions to a comment thread. Suggested launch cadence: <strong>one thinker per day + one toolkit post + one koha post</strong> — eight days, one loop.</p>
+
+    <div class="grid" style="padding:40px 0 0;">
+      <div class="card"><div class="no">X · Bluesky</div><h3>Short and punchy</h3><p>One thought per post. Ask for the reply, not the retweet. Bluesky rewards sincerity; X rewards edge.</p></div>
+      <div class="card"><div class="no">Substack Notes</div><h3>Half a paragraph</h3><p>Reads like an aside from an essay. One hook, one question. Good for essayists warming up the audience.</p></div>
+      <div class="card"><div class="no">Facebook</div><h3>Longer captions</h3><p>Lead with the human stakes, then drop the link. FB comment sections still work for real discussion.</p></div>
+      <div class="card"><div class="no">LinkedIn</div><h3>Workplace framing</h3><p>Reframe the theory as a workplace or education argument. Skip the jargon. Let the theory sneak in.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISUALS -->
+<section class="kit-section" id="visuals">
+  <div class="shell">
+    <p class="section-eyebrow">02 · The Visuals</p>
+    <h2>21 square images. 1080×1080. Ready to post.</h2>
+    <p class="lede">Six thinker cards, six pull-quote cards, six discussion-prompt cards, one master toolkit card, one koha card, one series-index card, plus an "AI Warrior · The Thinkers Series" hero. Each one uses the thinker's own accent colour from the site CSS. Click any tile to download the full-resolution PNG.</p>
+
+    <div class="cat-tabs">
+      <button class="cat-tab on" data-cat="all">All 21</button>
+      <button class="cat-tab" data-cat="thinker">Thinker cards</button>
+      <button class="cat-tab" data-cat="quote">Quotes</button>
+      <button class="cat-tab" data-cat="prompt">Discussion prompts</button>
+      <button class="cat-tab" data-cat="other">Toolkit · Koha · Index</button>
+    </div>
+
+    <div class="visual-grid" id="visualGrid">
+      <!-- populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- LAUNCH POSTS -->
+<section class="kit-section" id="launch">
+  <div class="shell">
+    <p class="section-eyebrow">03 · Launch Posts</p>
+    <h2>Introduce the toolkit.</h2>
+    <p class="lede">Use these once, at the top of the loop. Then rotate the per-thinker scripts below across the following six days.</p>
+
+    <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X / Bluesky · short</div><blockquote>Six thinkers. One working-class toolkit.
+
+Gramsci. Kropotkin. Graeber. Freire. Deleuze. Bakunin.
+
+Refitted for the algorithmic century. Free to read. Free to remix.
+
+Which of the six do you trust most in 2026 — and which one do you think is overrated? 👇</blockquote></div>
+
+    <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X · fork it</div><blockquote>I built a free HTML course library for people who can't afford theory school.
+
+Six thinkers. Every course CC BY-SA 4.0. Fork the repo, translate it, remix it, teach it in your union branch.
+
+If it's useful, throw a koha in the tin.
+https://robertmccallnz.github.io/six-thinkers/</blockquote></div>
+
+    <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Substack Note</div><blockquote>Six thinkers, one toolkit. I've spent the last stretch pulling Gramsci, Kropotkin, Graeber, Freire, Deleuze and Bakunin off the shelf, dusting them down, and refitting them for the algorithmic century.
+
+Every course is free to read. Every course is free to remix under CC BY-SA 4.0. If it helps you, throw a koha in the tin so it stays free for the next reader.
+
+Which of these six do you actually use in your organising — and which one do you keep meaning to read but haven't?</blockquote></div>
+
+    <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Facebook · Kiwi Dialectic page</div><blockquote>Six thinkers. One working-class toolkit. Made in Ōtepoti Dunedin, free for anyone in Aotearoa who wants it.
+
+Gramsci on hegemony. Kropotkin on mutual aid. Graeber on debt and bullshit jobs. Freire on pedagogy. Deleuze on rhizomes. Bakunin on federation.
+
+The whole library is HTML, no paywall, no login, no algorithm herding you. Read it, remix it, teach it in your kura, your union, your flat.
+
+Tell me in the comments: which thinker changed how you saw your own job, your own debt, your own school?
+https://robertmccallnz.github.io/six-thinkers/</blockquote></div>
+
+    <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">LinkedIn</div><blockquote>There's a version of "adult learning" that costs $2,000 and teaches you nothing your grandmother didn't already know.
+
+Then there's a version that's free, open-source, and puts six of the sharpest political thinkers of the last century into your hands — Gramsci, Kropotkin, Graeber, Freire, Deleuze, Bakunin — rewritten for people who work for a living.
+
+I've published the whole library under CC BY-SA 4.0. Fork it. Translate it. Use it in your team's L&D budget if you're brave.
+
+What's the one book you wish someone had handed you in your first year of work?</blockquote></div>
+  </div>
+</section>
+
+<!-- PER-THINKER -->
+<section class="kit-section" id="thinkers">
+  <div class="shell">
+    <p class="section-eyebrow">04 · Per-Thinker Scripts</p>
+    <h2>One thinker per day.</h2>
+    <p class="lede">Four platform voices per thinker + a discussion prompt for the comments. Copy, paste, edit, post.</p>
+
+    <!-- GRAMSCI -->
+    <div class="thinker-block t-gramsci" id="t-gramsci">
+      <div class="header-row"><div class="no">01 · Hegemony</div><h3>Gramsci</h3></div>
+      <p class="oneline">Power, hegemony, institutions, and counter-power from below.</p>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X · hook 1</div><blockquote>"The old is dying and the new cannot be born; in this interregnum a great variety of morbid symptoms appear."
+
+Gramsci wrote that in a fascist prison in the 1930s. Name the morbid symptom you're watching in 2026. I'll start: the algorithm is now the school.</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X · hook 2</div><blockquote>Hegemony isn't the boot on your neck. It's the voice in your head that says "well, that's just how things are."
+
+Where did you last catch yourself repeating a line that wasn't yours?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Substack Note</div><blockquote>Gramsci is the thinker I hand to anyone who says "but people vote against their own interests, so what can you do?" His answer, from a fascist prison cell, was: you build counter-hegemony. Slowly. In every classroom, every union meeting, every group chat. You don't wait for the crisis to convert people; you build the culture that makes the crisis legible when it comes. Course 01 is live. What's one institution near you that's ripe for a war of position?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Facebook</div><blockquote>Antonio Gramsci wrote most of his best work in a cell, watching Mussolini's Italy from the inside. His guards were told to "stop this brain from working for twenty years." They failed. Course 01 — Gramsci for Aotearoa — is now live. Seven lessons. Free to read. Free to remix. Tell me: where in Aotearoa do you see the fight for hegemony playing out right now?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">LinkedIn</div><blockquote>Antonio Gramsci's core insight: power isn't just held by force, it's held by consent — and consent is manufactured every day, in every classroom, newsroom, LinkedIn feed. If you work in comms, education, or leadership, you're a hegemony worker whether you like the term or not. The question is: whose hegemony are you building? Course 01 is free at the link.</blockquote></div>
+
+      <p class="prompt-note">Comment prompt: Name one "common sense" in your workplace or community that you think is quietly serving somebody else's interests.</p>
+    </div>
+
+    <!-- KROPOTKIN -->
+    <div class="thinker-block t-kropotkin" id="t-kropotkin">
+      <div class="header-row"><div class="no">02 · Cooperation</div><h3>Kropotkin</h3></div>
+      <p class="oneline">Cooperation, survival, working-class care, and socialist practice.</p>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X · hook 1</div><blockquote>Darwin's bulldogs said nature was red in tooth and claw.
+
+Kropotkin, a Russian prince turned anarchist, went to Siberia and found the opposite: cooperation is the survival strategy. Species that share, last.
+
+Name a mutual aid group in your town. I'll boost it.</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X · hook 2</div><blockquote>Every time your neighbour lends you a drill instead of you buying one, that's Kropotkin.
+
+Every time a marae feeds the town after a flood, that's Kropotkin.
+
+The economy of care already exists. It's just uncounted.</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Substack Note</div><blockquote>Kropotkin's Mutual Aid is the book I hand to anyone who's been told "socialism is against human nature." He spent years in Siberia watching animals, then years in exile watching workers, and drew the same conclusion from both: the species that survive are the ones that cooperate. Course 02 is up. Tell me about a mutual aid whakapapa in your own whānau — the pot of soup, the working bee, the tangi that fed a hundred people on nothing.</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Facebook</div><blockquote>Peter Kropotkin was a Russian prince who threw away the title, went to Siberia, and came back convinced that cooperation — not competition — is what keeps species and communities alive. Course 02 — Kropotkin and Mutual Aid — is live. Seven lessons. Free. Comment with a mutual aid story from your own street and I'll compile the best ones into a follow-up post.</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">LinkedIn</div><blockquote>The most productive teams I've ever seen weren't the "high-performers competing for stack rank." They were the ones quietly running on mutual aid — covering each other's shifts, sharing knowledge without gatekeeping, protecting the new hire. Kropotkin wrote a whole book about why. Course 02 is free at the link.</blockquote></div>
+
+      <p class="prompt-note">Comment prompt: What's the smallest act of mutual aid you've received this year that you'd like to name publicly?</p>
+    </div>
+
+    <!-- GRAEBER -->
+    <div class="thinker-block t-graeber" id="t-graeber">
+      <div class="header-row"><div class="no">03 · Anthropology</div><h3>Graeber</h3></div>
+      <p class="oneline">Debt as a tool of power, work made meaningless by design, and how ordinary people run things without bosses.</p>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X · hook 1</div><blockquote>David Graeber's question was simple: if your job vanished tomorrow, would anyone notice?
+
+Not "would you get fired." Would the world notice?
+
+Answer honestly in the replies. No judgement. This is a research project.</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X · hook 2</div><blockquote>Debt isn't a moral failure. It's a technology of control 5,000 years old.
+
+The first prisons were debtors' prisons. The first revolts were debt cancellations. Every jubilee in history has been working-class people rewriting the ledger.
+
+Whose ledger are you living in?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Substack Note</div><blockquote>Graeber gave us three gifts: Debt: The First 5,000 Years, which put the whole moral panic about "living within your means" in its proper historical place; Bullshit Jobs, which named what most of us already suspected about the modern workplace; and The Dawn of Everything, which blew up the story that hierarchy is inevitable. Course 03 pulls those three together for Aotearoa. What's the most bullshit job you've ever had — and did you know it while you had it?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Facebook</div><blockquote>David Graeber died in 2020 but his questions still hit harder than most living pundits. Why does the economy demand meaningless work? Why does debt feel like a moral failing when a bank writing off billions doesn't? Why do we still act as if there's no alternative to bosses? Course 03 is now live — Debt, Bullshit Jobs, Direct Democracy. Free. Tell me: what's a decision that got made about your workplace this year that you would have made differently if anyone had asked?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">LinkedIn</div><blockquote>"Bullshit Jobs" isn't an insult, it's a diagnosis. Graeber defined it as work so pointless the person doing it can't justify its existence — but has to pretend otherwise to keep the paycheque. He found it wasn't rare. It was structural. If you've ever sat in a meeting and thought "this could have been an email, and the email could have been nothing," you already understand the theory. Course 03 is free.</blockquote></div>
+
+      <p class="prompt-note">Comment prompt: What's a piece of "financial common sense" you were raised with that you now think was propaganda?</p>
+    </div>
+
+    <!-- FREIRE -->
+    <div class="thinker-block t-freire" id="t-freire">
+      <div class="header-row"><div class="no">04 · Pedagogy</div><h3>Freire</h3></div>
+      <p class="oneline">Paulo Freire's pedagogy of the oppressed, refitted for the age of generative AI and Aotearoa's own kura kaupapa Māori.</p>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X · hook 1</div><blockquote>Freire called it the "banking model" of education: the teacher deposits knowledge, the student is the vault, the vault gets tested.
+
+ChatGPT is now the biggest bank in history. Who's the depositor and who's the vault?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X · hook 2</div><blockquote>Every algorithm is a curriculum. It's teaching you what to want, what to fear, what to click.
+
+You didn't consent to enrolment. You can still drop out.</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Substack Note</div><blockquote>Paulo Freire wrote Pedagogy of the Oppressed in exile, after being jailed for teaching Brazilian peasants to read. His crime was that reading, done properly, is dangerous. Course 04 puts Freire in conversation with kura kaupapa Māori and the generative AI moment — because the banking model of education has a new bank, and it's trained on the whole internet. What was the moment you realised your own schooling had been designed to produce a specific kind of worker?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Facebook</div><blockquote>If you've ever felt like school was a factory that mostly taught you how to sit still and not ask why — you weren't imagining it. Paulo Freire wrote a whole book explaining the design. Course 04 — Freire mō Aotearoa: Pedagogy of the Algorithm — lands soon. It puts Freire's method next to kura kaupapa Māori and asks: what does "conscientisation" mean when your teacher is now a chatbot? What's one thing school taught you that you had to unlearn as an adult?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">LinkedIn</div><blockquote>Every L&D programme is a pedagogy. The question is which one. Freire's distinction — between "banking" education that deposits content into passive learners, and "problem-posing" education that treats learners as co-investigators of their own reality — is the single most useful frame I've found for designing learning that actually sticks. Course 04 is coming. Free to remix under CC BY-SA 4.0.</blockquote></div>
+
+      <p class="prompt-note">Comment prompt: What's the one lesson your schooling refused to teach you that you had to find on your own?</p>
+    </div>
+
+    <!-- DELEUZE -->
+    <div class="thinker-block t-deleuze" id="t-deleuze">
+      <div class="header-row"><div class="no">05 · Rhizome</div><h3>Deleuze</h3></div>
+      <p class="oneline">Rhizomes, assemblages, and lines of flight — Deleuze's ideas for those who teach, create, and organise.</p>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X · hook 1</div><blockquote>A tree has a trunk. Chop it and it dies.
+
+A rhizome has no centre. Chop it anywhere and it grows sideways.
+
+Deleuze asked: is your movement a tree or a rhizome?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X · hook 2</div><blockquote>"A line of flight is not an escape. It's what you become when you stop pretending the map is the territory." — reading Deleuze on a Tuesday
+
+What's a line of flight you're currently on?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Substack Note</div><blockquote>Deleuze is the thinker people bounce off the hardest, and it's usually because someone handed them A Thousand Plateaus without a life-jacket. Course 05 is the shortest — one long lesson for now — because I want to test whether the rhizome, the assemblage and the line of flight actually land for people who teach, create and organise, before I build out the rest. Tell me: does "rhizome" click for you as a metaphor for organising, or does it slide off?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Facebook</div><blockquote>If you've ever tried to describe a movement that has no clear leader, no single headquarters, no manifesto anyone fully agrees on — but somehow keeps growing — you're already thinking rhizomatically. Deleuze gave us the vocabulary. Course 05 is a taster: one lesson, free, testing whether these ideas earn their keep in organising work. Read it and tell me: tree, rhizome, or something in between?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">LinkedIn</div><blockquote>"Rhizome" is the most useful org-design metaphor I've come across, and it's not from a management book. Gilles Deleuze — with Félix Guattari — described networks that grow without a centre, resist top-down capture, and mutate faster than any hierarchy can respond. If your team is drawing an org chart, you're drawing a tree. If your team is drawing a map of relationships, you might be closer to a rhizome. Course 05 is a first taste.</blockquote></div>
+
+      <p class="prompt-note">Comment prompt: Name a rhizome you're part of — a group, a scene, a network — that has no clear boss but somehow keeps going.</p>
+    </div>
+
+    <!-- BAKUNIN -->
+    <div class="thinker-block t-bakunin" id="t-bakunin">
+      <div class="header-row"><div class="no">06 · Federation</div><h3>Bakunin</h3></div>
+      <p class="oneline">Federalist, anti-authoritarian socialism — the man Marx feared, read for Aotearoa.</p>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X · hook 1</div><blockquote>Marx wanted a workers' state. Bakunin said any state would eat the workers.
+
+A century and a half later, we've run both experiments. Tell me who was closer.</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X · hook 2</div><blockquote>Bakunin: "If you took the most ardent revolutionary, vested him in absolute power, within a year he would be worse than the Tsar himself."
+
+Every generation has to relearn this the hard way.</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Substack Note</div><blockquote>Bakunin is the ghost at every socialist wedding. Marx feared him, purged him, and history mostly remembered Marx — but every time a workers' state turns on the workers, Bakunin's warning gets re-read. Course 06 — Bakunin mō Aotearoa — reads him next to tino rangatiratanga, federation from below, and the whakapapa of hapū-based governance that never needed a Westminster to legitimise it. What does "federation from below" look like in your rohe?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Facebook</div><blockquote>Mikhail Bakunin was the socialist the other socialists tried to erase. Why? Because he was the one who saw, in the 1870s, exactly what would happen if you built a revolution around a central state instead of federated communities. Course 06 puts Bakunin next to Aotearoa's own whakapapa of federated hapū governance — Tangi o te Tāheke, the lament of the cascade. Free. Tell me: what does "power from below" look like where you live?</blockquote></div>
+
+      <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">LinkedIn</div><blockquote>There's a version of leadership that centralises decisions and calls it "clarity." There's another that federates them, trusts the people closest to the work, and calls it "subsidiarity." Bakunin was arguing for the second one 150 years before it became a management buzzword. Course 06 makes the case, in plain language, that federation isn't utopian — it's just older, more tested, and more resilient than the alternative.</blockquote></div>
+
+      <p class="prompt-note">Comment prompt: Where in your life do you already practise federation without calling it that?</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- DISCUSSION DRIVERS -->
+<section class="kit-section" id="prompts">
+  <div class="shell">
+    <p class="section-eyebrow">05 · Discussion Drivers · Evergreen</p>
+    <h2>Mid-week revivers.</h2>
+    <p class="lede">Run these when a thinker post has cooled off, to keep the comment thread alive.</p>
+
+    <div class="script-card"><button class="copy-btn" data-copy>Copy</button><blockquote>Which of the six do you already use in your organising, and which one do you keep meaning to read?</blockquote></div>
+    <div class="script-card"><button class="copy-btn" data-copy>Copy</button><blockquote>Rank them, most useful for Aotearoa in 2026 to least: Gramsci, Kropotkin, Graeber, Freire, Deleuze, Bakunin. Defend your rank.</blockquote></div>
+    <div class="script-card"><button class="copy-btn" data-copy>Copy</button><blockquote>Which thinker's ideas most describe your workplace right now?</blockquote></div>
+    <div class="script-card"><button class="copy-btn" data-copy>Copy</button><blockquote>If you had to teach one of these six to a class of Year 12s, which one and why?</blockquote></div>
+    <div class="script-card"><button class="copy-btn" data-copy>Copy</button><blockquote>What thinker is missing from this six? (I know. Tell me anyway.)</blockquote></div>
+    <div class="script-card"><button class="copy-btn" data-copy>Copy</button><blockquote>Free HTML courses vs paywalled Substack vs YouTube: which format actually gets you to finish the material? Honest answers.</blockquote></div>
+  </div>
+</section>
+
+<!-- KOHA -->
+<section class="kit-section" id="koha">
+  <div class="shell">
+    <p class="section-eyebrow">06 · Koha</p>
+    <h2>Keep it free for the next reader.</h2>
+    <p class="lede">The whole library — six thinkers, the visuals kit, all future courses — runs on koha. If it's earning its keep in your life, throw a little in the tin.</p>
+
+    <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">X</div><blockquote>This whole library — six thinkers, dozens of lessons, all HTML, no paywall — is free to read and free to remix under CC BY-SA 4.0.
+
+If it's earning its keep in your life, throw a koha in the tin so the next reader gets it free too.
+https://ko-fi.com/thekiwidialectic</blockquote></div>
+
+    <div class="script-card"><button class="copy-btn" data-copy>Copy</button><div class="platform">Facebook</div><blockquote>The Kiwi Dialectic runs on koha. Not ads, not paywalls, not tracking, not "premium tiers." Just readers who chip in what they can, when they can, so the whole thing stays free for the ones who can't. If today's the day, ko-fi.com/thekiwidialectic. Ngā mihi nui.</blockquote></div>
+
+    <div class="ctas" style="margin-top:30px;">
+      <a class="btn kofi" href="https://ko-fi.com/thekiwidialectic" target="_blank">☕ Koha via Ko-fi</a>
+      <a class="btn substack" href="https://kiwidialectic.substack.com" target="_blank">Subscribe on Substack →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="row">
+      <div>
+        <h4>SIX THINKERS</h4>
+        <a href="https://kiwidialectic.substack.com" target="_blank">The Kiwi Dialectic on Substack</a>
+        <a href="https://ko-fi.com/thekiwidialectic" target="_blank">Support on Ko-fi</a>
+        <a href="https://robertmccallnz.github.io/kiwidialecticcalendar-/github-calendar-connector.html" target="_blank">Course calendar</a>
+      </div>
+      <div>
+        <h4>OTHER COURSES</h4>
+        <a href="https://robertmccallnz.github.io/ai-warrior/" target="_blank">AI Warrior</a>
+        <a href="https://robertmccallnz.github.io/ai-literacy-for-families/" target="_blank">AI Literacy for Families</a>
+        <a href="https://robertmccallnz.github.io/cooperative-aotearoa/" target="_blank">Cooperatives in Aotearoa</a>
+        <a href="https://te-pa.org" target="_blank">Te Pā Tūwatawata</a>
+      </div>
+      <div>
+        <h4>OPEN</h4>
+        <a href="https://github.com/robertmccallnz/six-thinkers" target="_blank">GitHub repo</a>
+        <a href="https://github.com/robertmccallnz/six-thinkers/tree/main/social-kit" target="_blank">Social Kit source</a>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>
+      </div>
+    </div>
+    <p class="copy">© The Kiwi Dialectic · Made in Ōtepoti Dunedin · Train the mind. Arm the class.</p>
+  </div>
+</footer>
+
+<script>
+  // Visuals catalogue
+  const visuals = [
+    // Master + hero cards first
+    { file: '04_master_toolkit.png',   title: 'Master Toolkit',       cat: 'other', label: 'Master · Toolkit' },
+    { file: '06_series_index.png',     title: 'Series Index',         cat: 'other', label: 'Index · All six' },
+    { file: '05_koha_support.png',     title: 'Koha · Support',       cat: 'other', label: 'Koha · Support' },
+    // Thinker cards
+    { file: '01_thinker_gramsci.png',  title: 'Gramsci',              cat: 'thinker', label: '01 · Gramsci' },
+    { file: '01_thinker_kropotkin.png',title: 'Kropotkin',            cat: 'thinker', label: '02 · Kropotkin' },
+    { file: '01_thinker_graeber.png',  title: 'Graeber',              cat: 'thinker', label: '03 · Graeber' },
+    { file: '01_thinker_freire.png',   title: 'Freire',               cat: 'thinker', label: '04 · Freire' },
+    { file: '01_thinker_deleuze.png',  title: 'Deleuze',              cat: 'thinker', label: '05 · Deleuze' },
+    { file: '01_thinker_bakunin.png',  title: 'Bakunin',              cat: 'thinker', label: '06 · Bakunin' },
+    // Quotes
+    { file: '02_quote_gramsci.png',    title: 'Gramsci · Quote',      cat: 'quote', label: 'Quote · Gramsci' },
+    { file: '02_quote_kropotkin.png',  title: 'Kropotkin · Quote',    cat: 'quote', label: 'Quote · Kropotkin' },
+    { file: '02_quote_graeber.png',    title: 'Graeber · Quote',      cat: 'quote', label: 'Quote · Graeber' },
+    { file: '02_quote_freire.png',     title: 'Freire · Quote',       cat: 'quote', label: 'Quote · Freire' },
+    { file: '02_quote_deleuze.png',    title: 'Deleuze · Quote',      cat: 'quote', label: 'Quote · Deleuze' },
+    { file: '02_quote_bakunin.png',    title: 'Bakunin · Quote',      cat: 'quote', label: 'Quote · Bakunin' },
+    // Prompts
+    { file: '03_prompt_gramsci.png',   title: 'Gramsci · Prompt',     cat: 'prompt', label: 'Prompt · Gramsci' },
+    { file: '03_prompt_kropotkin.png', title: 'Kropotkin · Prompt',   cat: 'prompt', label: 'Prompt · Kropotkin' },
+    { file: '03_prompt_graeber.png',   title: 'Graeber · Prompt',     cat: 'prompt', label: 'Prompt · Graeber' },
+    { file: '03_prompt_freire.png',    title: 'Freire · Prompt',      cat: 'prompt', label: 'Prompt · Freire' },
+    { file: '03_prompt_deleuze.png',   title: 'Deleuze · Prompt',     cat: 'prompt', label: 'Prompt · Deleuze' },
+    { file: '03_prompt_bakunin.png',   title: 'Bakunin · Prompt',     cat: 'prompt', label: 'Prompt · Bakunin' },
+  ];
+
+  function renderVisuals(cat) {
+    const grid = document.getElementById('visualGrid');
+    grid.innerHTML = '';
+    const list = cat === 'all' ? visuals : visuals.filter(v => v.cat === cat);
+    list.forEach(v => {
+      const a = document.createElement('a');
+      a.className = 'visual-tile';
+      a.href = 'visuals/' + v.file;
+      a.download = v.file;
+      a.innerHTML = `
+        <img loading="lazy" src="visuals/${v.file}" alt="${v.title}">
+        <div class="meta"><span class="t">${v.label}</span><span class="dl">⬇ PNG</span></div>
+      `;
+      grid.appendChild(a);
+    });
+  }
+  renderVisuals('all');
+
+  document.querySelectorAll('.cat-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      renderVisuals(btn.dataset.cat);
+    });
+  });
+
+  // Copy-to-clipboard on each script card
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const card = btn.closest('.script-card');
+      const bq = card.querySelector('blockquote');
+      const text = bq.innerText;
+      try {
+        await navigator.clipboard.writeText(text);
+        const orig = btn.textContent;
+        btn.textContent = 'Copied ✓';
+        btn.classList.add('ok');
+        setTimeout(() => { btn.textContent = orig; btn.classList.remove('ok'); }, 1600);
+      } catch (e) {
+        // Fallback for older browsers
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); btn.textContent = 'Copied ✓'; btn.classList.add('ok'); } catch(_) {}
+        document.body.removeChild(ta);
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('ok'); }, 1600);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
