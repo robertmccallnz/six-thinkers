@@ -1,5 +1,6 @@
 /* Community layer — Giscus (GitHub Discussions) + privacy-first indicator
-   Matches Six Thinkers dark cream palette. */
+   Matches Kiwi Dialectic dark cream palette. */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
 
 .kd-community{
   --kc-bg:#0a0a0a;
@@ -54,8 +55,12 @@
 .kd-community .kc-meta{
   color:var(--kc-muted);font-size:13px;margin:0 0 24px;max-width:64ch;
 }
-.kd-community .kc-meta a{color:var(--kc-koura);text-decoration:none;border-bottom:1px solid rgba(232,168,58,.35)}
-.kd-community .kc-meta a:hover{color:var(--kc-red);border-bottom-color:var(--kc-red)}
+.kd-community .kc-lede a,
+.kd-community .kc-meta a,
+.kd-community .kc-fallback a{color:var(--kc-koura);text-decoration:none;border-bottom:1px solid rgba(232,168,58,.35)}
+.kd-community .kc-lede a:hover,
+.kd-community .kc-meta a:hover,
+.kd-community .kc-fallback a:hover{color:var(--kc-red);border-bottom-color:var(--kc-red)}
 
 /* Giscus mount — the widget itself is an iframe, so outer styling
    controls only the panel frame around it. */
@@ -81,8 +86,6 @@
 }
 .kd-community.is-broken #kd-comments{display:none}
 .kd-community.is-broken .kc-fallback{display:block}
-/* When Giscus fails to load, keep the section header + fallback links
-   visible but drop the misleading intro/meta lines. */
 .kd-community.is-broken .kc-lede,
 .kd-community.is-broken .kc-meta{display:none}
 
