@@ -1,12 +1,23 @@
 {
   "episodes": [
     {
+      "slug": "nuclear-boogeyman",
+      "number": "003",
+      "title": "The boogeyman with the DeLorean",
+      "subtitle": "Novelly and Bakunin on nuclear-free New Zealand.",
+      "cast": ["Novelly", "Bakunin"],
+      "runtime": "7:44",
+      "mp3_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/003-nuclear-boogeyman/nuclear-boogeyman.mp3",
+      "waveform_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/003-nuclear-boogeyman/nuclear-boogeyman.waveform.png",
+      "date": "2026-07-03"
+    },
+    {
       "slug": "india-fta",
       "number": "002",
       "title": "A once-in-a-generation opportunity?",
       "subtitle": "Luxon and Freire on the New Zealand-India free trade agreement.",
       "cast": ["Luxon", "Freire"],
-      "runtime": "6:31",
+      "runtime": "6:54",
       "mp3_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/002-india-fta/india-fta.mp3",
       "waveform_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/002-india-fta/india-fta.waveform.png",
       "date": "2026-07-03"
