@@ -1,0 +1,26 @@
+{
+  "episodes": [
+    {
+      "slug": "india-fta",
+      "number": "002",
+      "title": "A once-in-a-generation opportunity?",
+      "subtitle": "Luxon and Freire on the New Zealand-India free trade agreement.",
+      "cast": ["Luxon", "Freire"],
+      "runtime": "6:31",
+      "mp3_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/002-india-fta/india-fta.mp3",
+      "waveform_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/002-india-fta/india-fta.waveform.png",
+      "date": "2026-07-03"
+    },
+    {
+      "slug": "housing-and-hegemony",
+      "number": "001",
+      "title": "Housing and the shape of the state",
+      "subtitle": "Gramsci and Kropotkin, on why rent has always been political.",
+      "cast": ["Gramsci", "Kropotkin"],
+      "runtime": "3:29",
+      "mp3_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/001-housing-and-hegemony/housing-and-hegemony.mp3",
+      "waveform_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/001-housing-and-hegemony/housing-and-hegemony.waveform.png",
+      "date": "2026-07-03"
+    }
+  ]
+}

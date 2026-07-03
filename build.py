@@ -23,6 +23,7 @@ from html import escape
 
 ROOT = Path(__file__).resolve().parent
 COURSES_PATH = ROOT / "courses.json"
+EPISODES_PATH = ROOT / "episodes.json"
 
 KOFI_URL = "https://ko-fi.com/thekiwidialectic"
 SUBSTACK_HOME = "https://kiwidialectic.substack.com"
@@ -385,6 +386,28 @@ def build_hub(data):
         <span class="card-link">{lessons_n} {'lessons' if lessons_n != 1 else 'lesson'} →</span>
       </a>""")
 
+    # ---- Audio episodes section ------------------------------------------
+    episode_cards = []
+    if EPISODES_PATH.exists():
+        eps = json.loads(EPISODES_PATH.read_text()).get('episodes', [])
+        for ep in eps:
+            cast_line = ' · '.join(escape(c) for c in ep.get('cast', []))
+            episode_cards.append(f"""    <article style="background:rgba(245,236,216,.04);border:1px solid rgba(255,255,255,.08);padding:18px 20px;margin-bottom:16px;border-radius:2px">
+      <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px">
+        <span style="color:var(--muted);font-family:ui-monospace,monospace;font-size:12px;letter-spacing:.1em">EP {escape(ep.get('number',''))}</span>
+        <span style="color:var(--muted);font-size:13px">{cast_line}</span>
+        <span style="color:var(--muted);font-size:13px;margin-left:auto">{escape(ep.get('runtime',''))}</span>
+      </div>
+      <h3 style="font-family:'Bebas Neue',sans-serif;letter-spacing:.02em;font-size:22px;line-height:1.15;margin:0 0 4px">{escape(ep.get('title',''))}</h3>
+      <p style="opacity:.75;margin:0 0 12px;font-size:15px">{escape(ep.get('subtitle',''))}</p>
+      <img src="{escape(ep.get('waveform_url',''))}" alt="Waveform" loading="lazy" style="width:100%;display:block;background:#f5ecd8;border:1px solid rgba(255,255,255,.08);margin-bottom:8px">
+      <audio controls preload="none" style="width:100%">
+        <source src="{escape(ep.get('mp3_url',''))}" type="audio/mpeg">
+        Your browser cannot play this audio. <a href="{escape(ep.get('mp3_url',''))}">Download the mp3</a>.
+      </audio>
+    </article>""")
+    episodes_html = '\n'.join(episode_cards) if episode_cards else '<p style="opacity:.6"><em>No episodes yet.</em></p>'
+
     html = HEAD.format(
         title=title,
         desc=desc,
@@ -420,6 +443,18 @@ def build_hub(data):
       <a href="assets/video/six-thinkers-promo-9x16.mp4">9:16 (vertical)</a> ·
       <a href="assets/video/six-thinkers-promo-1x1.mp4">1:1 (square)</a> ·
       Source: <a href="https://github.com/robertmccallnz/kd-dialogues" target="_blank" rel="noopener">kd-dialogues</a>
+    </p>
+  </div>
+</section>
+
+<section class="shell" aria-label="kd-dialogues audio episodes">
+  <div style="max-width:960px;margin:48px auto 8px;padding:0 20px">
+    <p class="eyebrow" style="margin-bottom:8px">Round Two · Audio Episodes</p>
+    <h2 style="font-family:'Bebas Neue',sans-serif;letter-spacing:.02em;font-size:34px;line-height:1.05;margin:0 0 12px">Long-form audio dialogues.</h2>
+    <p style="opacity:.85;margin:0 0 24px;max-width:640px">The same thinkers, at length — plus contemporary voices they'd argue with. Two-to-six voices per episode. No music. No ads. Just the argument.</p>
+{episodes_html}
+    <p style="opacity:.65;font-size:14px;margin:20px 0 0">
+      Source and transcripts: <a href="https://github.com/robertmccallnz/kd-dialogues" target="_blank" rel="noopener">kd-dialogues</a>
     </p>
   </div>
 </section>
