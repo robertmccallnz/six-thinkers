@@ -7,8 +7,8 @@
       "subtitle": "Novelly and Bakunin on nuclear-free New Zealand.",
       "cast": ["Novelly", "Bakunin"],
       "runtime": "7:44",
-      "mp3_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/003-nuclear-boogeyman/nuclear-boogeyman.mp3",
-      "waveform_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/003-nuclear-boogeyman/nuclear-boogeyman.waveform.png",
+      "mp3_url": "https://robertmccallnz.github.io/kd-dialogues/media/003-nuclear-boogeyman/nuclear-boogeyman.mp3",
+      "waveform_url": "https://robertmccallnz.github.io/kd-dialogues/media/003-nuclear-boogeyman/nuclear-boogeyman.waveform.png",
       "date": "2026-07-03"
     },
     {
@@ -18,8 +18,8 @@
       "subtitle": "Luxon and Freire on the New Zealand-India free trade agreement.",
       "cast": ["Luxon", "Freire"],
       "runtime": "6:54",
-      "mp3_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/002-india-fta/india-fta.mp3",
-      "waveform_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/002-india-fta/india-fta.waveform.png",
+      "mp3_url": "https://robertmccallnz.github.io/kd-dialogues/media/002-india-fta/india-fta.mp3",
+      "waveform_url": "https://robertmccallnz.github.io/kd-dialogues/media/002-india-fta/india-fta.waveform.png",
       "date": "2026-07-03"
     },
     {
@@ -29,8 +29,8 @@
       "subtitle": "Gramsci and Kropotkin, on why rent has always been political.",
       "cast": ["Gramsci", "Kropotkin"],
       "runtime": "3:29",
-      "mp3_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/001-housing-and-hegemony/housing-and-hegemony.mp3",
-      "waveform_url": "https://raw.githubusercontent.com/robertmccallnz/kd-dialogues/main/episodes/001-housing-and-hegemony/housing-and-hegemony.waveform.png",
+      "mp3_url": "https://robertmccallnz.github.io/kd-dialogues/media/001-housing-and-hegemony/housing-and-hegemony.mp3",
+      "waveform_url": "https://robertmccallnz.github.io/kd-dialogues/media/001-housing-and-hegemony/housing-and-hegemony.waveform.png",
       "date": "2026-07-03"
     }
   ]
