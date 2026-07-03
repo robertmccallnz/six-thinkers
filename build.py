@@ -405,6 +405,25 @@ def build_hub(data):
   </div>
 </section>
 
+<section class="shell" aria-label="Six Thinkers: Dialogues promo">
+  <div style="max-width:960px;margin:48px auto 8px;padding:0 20px">
+    <p class="eyebrow" style="margin-bottom:8px">Round One · Dialogues</p>
+    <h2 style="font-family:'Bebas Neue',sans-serif;letter-spacing:.02em;font-size:34px;line-height:1.05;margin:0 0 12px">Six voices. One writing room.</h2>
+    <p style="opacity:.85;margin:0 0 20px;max-width:640px">A pencil-sketch round-table where Gramsci opens, Kropotkin answers, Bakunin roars, Freire steadies, Deleuze cuts across, and Graeber lands the last word.</p>
+    <video controls playsinline preload="metadata" poster="assets/portraits/gramsci.png"
+           style="width:100%;max-width:960px;display:block;background:#1c1816;border:1px solid rgba(255,255,255,.08)">
+      <source src="assets/video/six-thinkers-promo-16x9.mp4" type="video/mp4">
+      Your browser can’t play the promo video. <a href="assets/video/six-thinkers-promo-16x9.mp4">Download the mp4</a>.
+    </video>
+    <p style="opacity:.65;font-size:14px;margin:10px 0 0">
+      Also available:
+      <a href="assets/video/six-thinkers-promo-9x16.mp4">9:16 (vertical)</a> ·
+      <a href="assets/video/six-thinkers-promo-1x1.mp4">1:1 (square)</a> ·
+      Source: <a href="https://github.com/robertmccallnz/kd-dialogues" target="_blank" rel="noopener">kd-dialogues</a>
+    </p>
+  </div>
+</section>
+
 <section class="shell">
   <div class="grid">
 {chr(10).join(cards)}
