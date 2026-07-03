@@ -337,7 +337,9 @@ def footer():
       </div>
       <div>
         <h4>OPEN</h4>
-        <a href="{REPO_URL}" target="_blank">GitHub repo</a>
+        <a href="https://robertmccallnz.github.io/kd-dialogues/" target="_blank">kd-dialogues · audio site</a>
+        <a href="https://github.com/robertmccallnz/kd-dialogues" target="_blank">kd-dialogues · repo (dialogues live here)</a>
+        <a href="{REPO_URL}" target="_blank">six-thinkers · repo</a>
         <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>
       </div>
     </div>
@@ -451,10 +453,10 @@ def build_hub(data):
   <div style="max-width:960px;margin:48px auto 8px;padding:0 20px">
     <p class="eyebrow" style="margin-bottom:8px">Round Two · Audio Episodes</p>
     <h2 style="font-family:'Bebas Neue',sans-serif;letter-spacing:.02em;font-size:34px;line-height:1.05;margin:0 0 12px">Long-form audio dialogues.</h2>
-    <p style="opacity:.85;margin:0 0 24px;max-width:640px">The same thinkers, at length — plus contemporary voices they'd argue with. Two-to-six voices per episode. No music. No ads. Just the argument.</p>
+    <p style="opacity:.85;margin:0 0 24px;max-width:640px">The same thinkers, at length — plus contemporary voices they'd argue with. Two-to-six voices per episode. No music. No ads. Just the argument. Full catalogue and transcripts live at <a href="https://robertmccallnz.github.io/kd-dialogues/" style="color:var(--kōura);text-decoration:underline">kd-dialogues</a>.</p>
 {episodes_html}
     <p style="opacity:.65;font-size:14px;margin:20px 0 0">
-      Source and transcripts: <a href="https://github.com/robertmccallnz/kd-dialogues" target="_blank" rel="noopener">kd-dialogues</a>
+      Full catalogue, transcripts and sources: <a href="https://robertmccallnz.github.io/kd-dialogues/" target="_blank" rel="noopener" style="color:var(--kōura)">robertmccallnz.github.io/kd-dialogues</a> · Repo: <a href="https://github.com/robertmccallnz/kd-dialogues" target="_blank" rel="noopener">kd-dialogues</a>
     </p>
   </div>
 </section>
