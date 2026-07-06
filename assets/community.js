@@ -37,7 +37,7 @@
       fb.innerHTML =
         'Widget not loading? Jump straight into the ' +
         '<a href="https://github.com/robertmccallnz/six-thinkers/discussions" target="_blank" rel="noopener">GitHub Discussion for this page</a>, ' +
-        'or reply on <a href="https://kiwidialectic.substack.com" target="_blank" rel="noopener">Substack</a> or ' +
+        'or reply on <a href="https://www.kiwidialectic.com/" target="_blank" rel="noopener">Substack</a> or ' +
         '<a href="https://facebook.com/kiwidialectic" target="_blank" rel="noopener">Facebook</a>.';
     }
     var live = root.querySelector('.kc-live');

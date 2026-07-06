@@ -3,7 +3,7 @@
 **Train the mind. Arm the class.**
 
 Landing page: https://robertmccallnz.github.io/six-thinkers/index.html
-Substack: https://kiwidialectic.substack.com
+Substack: https://www.kiwidialectic.com/
 Ko-fi: https://ko-fi.com/thekiwidialectic
 GitHub: https://github.com/robertmccallnz/six-thinkers
 Licence: CC BY-SA 4.0
